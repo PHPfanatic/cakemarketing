@@ -15,11 +15,21 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	
 	public $apicall;
 	
-	public function SetApiKey($key) {
+	/**
+	 * 
+	 * @param string $key
+	 * @param string $url
+	 */
+	public function __construct($key, $url) {
+		$this->SetApiKey($key);
+		$this->SetApiUrl($url);
+	}
+	
+	protected function SetApiKey($key) {
 		$this->apikey = $key;	
 	}
 	
-	public function SetApiUrl($url) {
+	protected function SetApiUrl($url) {
 		$this->apiurl = $url;
 	}
 	

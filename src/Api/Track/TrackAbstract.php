@@ -11,9 +11,16 @@ use PhpFanatic\Cakemarketing\AbstractBaseApi;
 
 abstract class AbstractTrack extends AbstractBaseApi
 {
+	public function __construct() {
+		parent::__construct();
+	}
+
 	/**
-	 * 
+	 * Returns a message indicating whether or not the conversion was updated.
+	 * @see https://support.getcake.com/support/solutions/articles/5000631028-track-updateconversion-api-version-4 Documentation of UpdateConversion
 	 * @param array $data
+	 * @throws Exception
+	 * @return string Xml structure returned from Cake Marketing
 	 */
 	public function UpdateConversion($data) {
 		$function = '/4/track.asmx/UpdateConversion';
@@ -39,6 +46,21 @@ abstract class AbstractTrack extends AbstractBaseApi
 		if(!array_diff_key($field_required, $data)) {
 			throw new Exception('Missing required fields.');
 		}
+		
+		$this->BuildUri($data, $function);
+		$xml = $this->SendRequest();
+		
+		return $xml;
+	}
+	
+	/**
+	 * Returns the rejected dispositions allowed.
+	 * @see https://support.getcake.com/support/solutions/articles/5000546019-track-rejecteddispositions-api-version-1 Documentation of RejectedDispositions
+	 * @return string Xml structure returned from Cake Marketing
+	 */
+	public function RejectedDispositions() {
+		$function = '/1/track.asmx/RejectedDispositions';
+		$data = array();
 		
 		$this->BuildUri($data, $function);
 		$xml = $this->SendRequest();

@@ -2,19 +2,27 @@
 
 This project is a CakePHP 3 vendor implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
-Because of some inconsistencies in the Cake Marketing API not all API functions will be supported.
+Because of some inconsistencies in the Cake Marketing API not all functions will be supported.  This implementation breaks the Cake Marketing
+API into individual extensible classes that follow their naming convention.  Currently listed as:
+
+* Track
+* Accounting
+* Add
+* Addedit
+* Auth
+* Export
+* Edit
+* Get
+* Reports
+* Signup
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You will need an active Cake Marketing account with an active Api key and domain URL.  These need to be setup directly with Cake Marketing.
 
 ## Built With
 
