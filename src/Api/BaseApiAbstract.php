@@ -8,7 +8,7 @@
  */
 
 
-abstract class AbstractBaseApi implements AuthenticateInterface, BuilderInterface
+abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 {
 	private $apikey;
 	private $apiurl;

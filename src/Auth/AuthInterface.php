@@ -7,7 +7,7 @@
  * @version  1.0.0
  */
 
-interface AuthenticateInterface {
+interface AuthInterface {
 
 	/**
 	 * Set your Cake Marketing API key

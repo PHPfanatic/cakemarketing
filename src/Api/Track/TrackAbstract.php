@@ -41,11 +41,8 @@ abstract class AbstractTrack extends AbstractBaseApi
 		}
 		
 		$this->BuildUri($data, $function);
-		$this->SendRequest();
+		$xml = $this->SendRequest();
 		
-		$xml = $this->send($api_url, null, 'updateconversion');
-		
-		//$obj = json_decode(json_encode($xml));
-		return $this->Response($xml);
+		return $xml;
 	}
 }

@@ -9,6 +9,6 @@
 
 interface BuilderInterface {
 
-	public function BuildUri();
+	public function BuildUri(array $data=array(), $function);
 	
 }
