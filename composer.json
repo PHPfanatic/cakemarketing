@@ -1,0 +1,22 @@
+{
+    "name": "Cake Marketing",
+    "description": "Cake Marketing API",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["cake marketing","cakephp"],
+    "authors": [
+        {
+            "name": "Nick White",
+            "email": "git@phpfanatic.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "phpfanatic\\": "src"
+        }
+    }
+}
