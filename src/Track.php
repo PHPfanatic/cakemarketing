@@ -29,7 +29,7 @@ class Track extends AbstractBaseApi
 	 */
 	public function UpdateConversion($data) {
 		$function = '/4/track.asmx/UpdateConversion';
-		
+
 		$fields_required = array(
 				'offer_id',
 				'conversion_id',
@@ -47,17 +47,17 @@ class Track extends AbstractBaseApi
 				'note_to_append',
 				'disallow_on_billing_status'
 		);
-		
+
 		if(!array_diff_key($field_required, $data)) {
 			throw new \Exception('Missing required fields.');
 		}
-		
+
 		$this->BuildUri($data, $function);
 		$xml = $this->SendRequest();
-		
+
 		return $xml;
 	}
-	
+
 	/**
 	 * Returns the rejected dispositions allowed.
 	 * @see https://support.getcake.com/support/solutions/articles/5000546019-track-rejecteddispositions-api-version-1 Documentation of RejectedDispositions
@@ -66,10 +66,10 @@ class Track extends AbstractBaseApi
 	public function RejectedDispositions() {
 		$function = '/1/track.asmx/RejectedDispositions';
 		$data = array();
-		
+
 		$this->BuildUri($data, $function);
 		$xml = $this->SendRequest();
-		
+
 		return $xml;
 	}
 }

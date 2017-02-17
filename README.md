@@ -16,6 +16,8 @@ API into individual classes that follow their naming convention.  Currently list
 * Reports
 * Signup
 
+Currently if you need functionality from multiple classes, you will need to implement them independently.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.  
