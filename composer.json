@@ -1,10 +1,10 @@
 {
     "name": "phpfanatic/cakemarketing",
     "description": "Cake Marketing API for CakePHP 3",
-    "type": "library",
+    "type": "cakephp-plugin",
     "license": "MIT",
     "homepage": "https://github.com/PHPfanatic/cakemarketing-CakePHP-3",
-    "keywords": ["php","cake marketing","cakephp"],
+    "keywords": ["php","cake marketing","cakephp","cakephp plugin"],
     "authors": [
         {
             "name": "Nick White",
