@@ -16,7 +16,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	public $apicall;
 	
 	/**
-	 * 
+	 * Instantiate and set the required variables.
 	 * @param string $key
 	 * @param string $url
 	 */
@@ -25,14 +25,31 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 		$this->SetApiUrl($url);
 	}
 	
+	/**
+	 * Set the required API key.
+	 * {@inheritDoc}
+	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiKey()
+	 */
 	protected function SetApiKey($key) {
 		$this->apikey = $key;	
 	}
 	
+	/**
+	 * Set the required URL.
+	 * {@inheritDoc}
+	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiUrl()
+	 */
 	protected function SetApiUrl($url) {
 		$this->apiurl = $url;
 	}
 	
+	/**
+	 * Builds the URI structure for the specificed function (api method).
+	 * The data variable is an array of data to be passed to the method.
+	 * {@inheritDoc}
+	 * @see \PhpFanatic\Cakemarketing\BuilderInterface::BuildUri()
+	 * @throws Exception
+	 */
 	public function BuildUri($data, $function) {
 		if(!isset($this->apikey) || !isset($this->apiurl)){
 			throw new Exception('API Key or Url not set');
@@ -42,6 +59,11 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 		$this->apicall = $this->apiurl.$function.'?api_key='.$api_vars.'&'.$api_vars;
 	}
 	
+	/**
+	 * Send the API request to cake via curl.
+	 * @todo Evaluate curl usage, may be better as a socket.
+	 * @return string
+	 */
 	public function SendRequest() {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->apicall);

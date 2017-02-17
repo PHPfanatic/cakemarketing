@@ -1,6 +1,6 @@
 <?php namespace PhpFanatic\Cakemarketing;
 /**
- * TrackAbstract API functionality for Cake Marketing
+ * Track API functionality for Cake Marketing
  *
  * @author   Nick White <git@phpfanatic.com>
  * @link     https://github.com/PHPfanatic/cakemarketing
@@ -9,7 +9,7 @@
 
 use PhpFanatic\Cakemarketing\AbstractBaseApi;
 
-abstract class TrackAbstract extends AbstractBaseApi
+class Track extends AbstractBaseApi
 {
 	/**
 	 * Create the track class with your given Api key and url.
@@ -24,7 +24,7 @@ abstract class TrackAbstract extends AbstractBaseApi
 	 * Returns a message indicating whether or not the conversion was updated.
 	 * @see https://support.getcake.com/support/solutions/articles/5000631028-track-updateconversion-api-version-4 Documentation of UpdateConversion
 	 * @param array $data
-	 * @throws InternalErrorException
+	 * @throws Exception
 	 * @return string Xml structure returned from Cake Marketing
 	 */
 	public function UpdateConversion($data) {
