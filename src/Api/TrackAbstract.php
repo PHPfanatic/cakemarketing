@@ -1,6 +1,6 @@
 <?php namespace PhpFanatic\Cakemarketing;
 /**
- * Track API functionality for Cake Marketing
+ * TrackAbstract API functionality for Cake Marketing
  *
  * @author   Nick White <git@phpfanatic.com>
  * @link     https://github.com/PHPfanatic/cakemarketing
@@ -8,9 +8,8 @@
  */
 
 use PhpFanatic\Cakemarketing\AbstractBaseApi;
-use Cake\Network\Exception\InternalErrorException;
 
-class Track extends AbstractBaseApi
+abstract class TrackAbstract extends AbstractBaseApi
 {
 	/**
 	 * Create the track class with your given Api key and url.
@@ -50,7 +49,7 @@ class Track extends AbstractBaseApi
 		);
 		
 		if(!array_diff_key($field_required, $data)) {
-			throw new  InternalErrorException('Missing required fields.');
+			throw new \Exception('Missing required fields.');
 		}
 		
 		$this->BuildUri($data, $function);
