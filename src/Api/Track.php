@@ -1,6 +1,6 @@
 <?php namespace PhpFanatic\Cakemarketing;
 /**
- * Base API
+ * Track API functionality for Cake Marketing
  *
  * @author   Nick White <git@phpfanatic.com>
  * @link     https://github.com/PHPfanatic/cakemarketing
@@ -8,8 +8,9 @@
  */
 
 use PhpFanatic\Cakemarketing\AbstractBaseApi;
+use Cake\Network\Exception\InternalErrorException;
 
-abstract class AbstractTrack extends AbstractBaseApi
+class Track extends AbstractBaseApi
 {
 	/**
 	 * Create the track class with your given Api key and url.
@@ -24,7 +25,7 @@ abstract class AbstractTrack extends AbstractBaseApi
 	 * Returns a message indicating whether or not the conversion was updated.
 	 * @see https://support.getcake.com/support/solutions/articles/5000631028-track-updateconversion-api-version-4 Documentation of UpdateConversion
 	 * @param array $data
-	 * @throws Exception
+	 * @throws InternalErrorException
 	 * @return string Xml structure returned from Cake Marketing
 	 */
 	public function UpdateConversion($data) {
@@ -49,7 +50,7 @@ abstract class AbstractTrack extends AbstractBaseApi
 		);
 		
 		if(!array_diff_key($field_required, $data)) {
-			throw new Exception('Missing required fields.');
+			throw new  InternalErrorException('Missing required fields.');
 		}
 		
 		$this->BuildUri($data, $function);
