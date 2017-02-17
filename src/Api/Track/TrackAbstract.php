@@ -11,8 +11,13 @@ use PhpFanatic\Cakemarketing\AbstractBaseApi;
 
 abstract class AbstractTrack extends AbstractBaseApi
 {
-	public function __construct() {
-		parent::__construct();
+	/**
+	 * Create the track class with your given Api key and url.
+	 * @param string $key
+	 * @param string $url
+	 */
+	public function __construct($key, $url) {
+		parent::__construct($key, $url);
 	}
 
 	/**
