@@ -28,6 +28,13 @@ composer require phpfanatic/cakemarketing
 
 ```
 
+If you are adding this library to CakePHP 3, add the following for each class you would like to access.
+```
+require ROOT . 'vendor' . DS  . 'phpfanatic/cakemarketing' . DS . 'src' . DS . 'Track.php';
+
+use PhpFanatic\Cakemarketing\Track;
+``
+
 ### Prerequisites
 
 You will need an active Cake Marketing account with an active Api key and domain URL.  These need to be setup directly with Cake Marketing.
