@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/PHPfanatic/cakemarketing",
-    "keywords": ["php","cake marketing"],
+    "keywords": ["php","cake marketing","getcake","affiliate"],
     "authors": [
         {
             "name": "Nick White",

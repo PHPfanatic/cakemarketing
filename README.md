@@ -1,6 +1,6 @@
-# Cake Marketing API
+# Cake Marketing API Library
 
-This project is a vendor implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
+This project is a psr-4 compliant implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
 Because of some inconsistencies in the Cake Marketing API not all functions will be supported.  This implementation breaks the Cake Marketing
 API into individual classes that follow their naming convention.  Currently listed as:
