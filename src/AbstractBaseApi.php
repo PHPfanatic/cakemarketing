@@ -50,7 +50,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 * @see \PhpFanatic\Cakemarketing\BuilderInterface::BuildUri()
 	 * @throws Exception
 	 */
-	public function BuildUri($data, $function) {
+	public function BuildUri($data=array(), $function) {
 		if(!isset($this->apikey) || !isset($this->apiurl)){
 			throw new Exception('API Key or Url not set');
 		}
