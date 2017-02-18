@@ -28,12 +28,17 @@ composer require phpfanatic/cakemarketing
 
 ```
 
-If you are adding this library to CakePHP 3, add the following for each class you would like to access.
+I found that in CakePHP I needed to update the composer.json file of the CakePHP app to have the following:
 ```
-require ROOT . 'vendor' . DS  . 'phpfanatic/cakemarketing' . DS . 'src' . DS . 'Track.php';
+ "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "PhpFanatic\\Cakemarketing\\": "./vendor/phpfanatic/cakemarketing/src"
+        }
+    },
 
-use PhpFanatic\Cakemarketing\Track;
-``
+```
+
 
 ### Prerequisites
 
