@@ -30,7 +30,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 * {@inheritDoc}
 	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiKey()
 	 */
-	protected function SetApiKey($key) {
+	public function SetApiKey($key) {
 		$this->apikey = $key;	
 	}
 	
@@ -39,7 +39,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 * {@inheritDoc}
 	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiUrl()
 	 */
-	protected function SetApiUrl($url) {
+	public function SetApiUrl($url) {
 		$this->apiurl = $url;
 	}
 	
