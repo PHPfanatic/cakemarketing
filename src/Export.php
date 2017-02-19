@@ -12,13 +12,13 @@ use PhpFanatic\Cakemarketing\AbstractBaseApi;
 class Export extends AbstractBaseApi
 {
 	/*
-	 * Fields with set to null do not have a default value and therefore must
+	 * Fields set to null do not have a default value and therefore must
 	 * be provided.  Fields with a value can be passed in if the default value
 	 * is not desired.  Cake Marketing API requires all fields to be sent rather 
 	 * you you have a value for them or not.
 	 */
 	public $api_list = [
-			'ExportAffiliate'=>[
+			'Affiliate'=>[
 					'fields'=>[
 							'affiliate_id'=>null,
 							'account_manager_id'=>0,
@@ -30,9 +30,56 @@ class Export extends AbstractBaseApi
 							'affiliate_name'=>''
 					],
 					'uri'=>'/5/export.asmx/Affiliates'
+			],
+			'Offers'=>[
+					'fields'=>[
+							'offer_id'=>null,
+							'offer_name'=>'',
+							'advertiser_id'=>0,
+							'vertical_id'=>0,
+							'offer_type_id'=>0,
+							'media_type_id'=>0,
+							'offer_status_id'=>0,
+							'tag_id'=>0,
+							'start_at_row'=>1,
+							'row_limit'=>0,
+							'sort_field'=>0,
+							'sort_descending'=>'true'
+					],
+					'uri'=>'/5/export.asmx/Offers'
+			],
+			'Campaigns'=>[
+					'fields'=>[
+							'campaign_id'=>null,
+							'offer_id'=>null,
+							'affiliate_id'=>null,
+							'account_status_id'=>0,
+							'media_type_id'=>0,
+							'start_at_row'=>1,
+							'row_limit'=>0,
+							'sort_field'=>0,
+							'sort_descending'=>'true'
+					],
+					'uri'=>'/5/export.asmx/Campaigns'
+			],
+			'Buyers'=>[
+					'fields'=>[
+							'buyer_id'=>0,
+							'account_status_id'=> 0
+					],
+					'uri'=>'/2/export.asmx/Buyers'
+			],
+			'BuyerContracts'=>[
+					'fields'=>[
+							'buyer_id'=>0,
+							'buyer_contract_id'=> 0,
+							'vertical_id'=> 0,
+							'buyer_contract_status_id'=> 0
+					],
+					'uri'=>'/3/export.asmx/BuyerContracts'
 			]
 	];
-		
+	
 	/**
 	 * Create the track class with your given Api key and url.
 	 * @param string $key
@@ -53,6 +100,7 @@ class Export extends AbstractBaseApi
 		// the fields in the data array dynamically.
 		if(count($missing_fields) > 0) {
 			reset($missing_fields);
+			
 			for($i = 0; $i < count($missing_fields); $i++) {
 				$current = key($missing_fields);
 				if($this->api_list[$function]['fields'][$current] === null) {

@@ -62,6 +62,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	/**
 	 * Send the API request to cake via curl.
 	 * @todo Evaluate curl usage, may be better as a socket.
+	 * @todo Evaluate json return, currently Cake Marketing has inconsistent json support.
 	 * @return string
 	 */
 	public function SendRequest() {

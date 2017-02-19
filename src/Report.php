@@ -1,6 +1,6 @@
 <?php namespace PhpFanatic\Cakemarketing;
 /**
- * Track API functionality for Cake Marketing
+ * Report API functionality for Cake Marketing
  *
  * @author   Nick White <git@phpfanatic.com>
  * @link     https://github.com/PHPfanatic/cakemarketing
@@ -9,7 +9,7 @@
 
 use PhpFanatic\Cakemarketing\AbstractBaseApi;
 
-class Track extends AbstractBaseApi
+class Report extends AbstractBaseApi
 {
 	/*
 	 * Fields set to null do not have a default value and therefore must
@@ -18,67 +18,75 @@ class Track extends AbstractBaseApi
 	 * you you have a value for them or not.
 	 */
 	public $api_list = [
-			'UpdateConversion'=>[
+			'AffiliateSummary'=>[
 					'fields'=>[
-							'offer_id'=>null,
-							'conversion_id'=>0,
-							'request_session_id'=>0,
-							'transaction_id'=>null,
-							'payout'=>null,
-							'add_to_existing_payout'=>'FALSE',
-							'received'=>null,
-							'received_option'=>'total_revenue',
-							'disposition_type'=>null,
-							'disposition_id'=>null,
-							'update_revshare_payout'=>null,
-							'effective_date_option'=>null,
-							'custom_date'=>null,
-							'note_to_append'=>null,
-							'disallow_on_billing_status'=>'ignore'
+							'start_date'=>null,
+							'end_date'=>null,
+							'affiliate_manger_id'=>0,
+							'affiliate_tag_id'=>0,
+							'offer_tag_id'=>0,
+							'event_id'=>0,
+							'revenue_filter'=>'conversions_and_events'
 					],
-					'uri'=>'/4/track.asmx/UpdateConversion'
+					'uri'=>'/2/reports.asmx/AffiliateSummary'
 			],
-			'UpdateSaleRevenue'=>[
-					'fields'=>[
-							'buyer_contract_id'=>null,
-							'lead_id'=>null,
-							'add_to_existing'=>null,
-							'amount'=>null,
-							'notes'=>null
-					],
-					'uri'=>'/1/track.asmx/UpdateSaleRevenue'
-			],
-			'UpdateLeadPrice'=>[
-					'fields'=>[
-							'vertical_id'=>null,
-							'lead_id'=>null,
-							'add_to_existing'=>'FALSE',
-							'amount'=>null,
-							'mark_as_returned'=>'FALSE',
-							'custom_date'=>'01/01/2017 00:00:00',
-							'effective_date_option'=>'conversion_date'
-					],
-					'uri'=>'/2/track.asmx/UpdateLeadPrice'
-			],
-			'RejectedDispositions'=>[
-					'required_fields'=>[],
-					'uri'=>'/1/track.asmx/RejectedDispositions'
-			],
-			'MassConversionInsert'=>[
+			'CampaignSummary'=>[
 					'fields'=>[
 							'affiliate_id'=>null,
+							'start_date'=>null,
+							'end_date'=>null,
+							'affiliate_manager_id'=>0,
+							'affiliate_tag_id'=>0,
+							'offer_id'=>null,
+							'offer_tag_id'=>0,
 							'campaign_id'=>null,
-							'sub_affiliate'=>null,
-							'creative_id'=>null,
-							'total_to_insert'=>null,
-							'payout'=>null,
-							'received'=>null,
-							'note'=>null,
-							'transaction_ids'=>null,
-							'conversion_date'=>null
+							'event_id'=>0,
+							'revenue_filter'=>'conversions_and_events'
 					],
-					'uri'=>'/2/track.asmx/MassConversionInsert'
+					'uri'=>'/2/reports.asmx/CampaignSummary'
 			],
+			'DailySummaryExport'=>[
+					'fields'=>[
+							'affiliate_id'=>null,
+							'start_date'=>null,
+							'end_date'=>null,
+							'advertiser_id'=>0,
+							'offer_id'=>null,
+							'vertical_id'=>0,
+							'campaign_id'=>null,
+							'creative_id'=>0,
+							'account_manager_id'=>0,
+							'include_tests'=>'false'
+					],
+					'uri'=>'/1/reports.asmx/DailySummaryExport'
+			],
+			'Conversions'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'conversion_type'=>'all',
+							'event_id'=>0,
+							'affiliate_id'=>null,
+							'advertiser_id'=>0,
+							'offer_id'=>null,
+							'affiliate_tag_id'=>0,
+							'advertiser_tag_id'=>0,
+							'offer_tag_id'=>0,
+							'campaign_id'=>null,
+							'creative_id'=>null,
+							'price_format_id'=>0,
+							'disposition_type'=>'all',
+							'disposition_id'=>0,
+							'affiliate_billing_status'=>'all',
+							'advertiser_billing_status'=>'all',
+							'test_filter'=>'both',
+							'start_at_row'=>0,
+							'row_limit'=>1000,
+							'sort_field'=>'conversion_date',
+							'sort_descending'=>'false'
+					],
+					'uri'=>'/11/reports.asmx/Conversions'
+			]
 	];
 		
 	/**
@@ -89,19 +97,19 @@ class Track extends AbstractBaseApi
 	public function __construct($key, $url) {
 		parent::__construct($key, $url);
 	}
-	
+
 	public function ApiCall($function, $data=array()) {
 		if(!array_key_exists($function, $this->api_list)) {
 			throw new \Exception('Requested function does not exist.');
 		}
-		
+
 		$missing_fields = array_diff_key($this->api_list[$function]['fields'], $data);
-		
+
 		// Cycle through the missing fields, if default values is not null then set
 		// the fields in the data array dynamically.
 		if(count($missing_fields) > 0) {
 			reset($missing_fields);
-			
+
 			for($i = 0; $i < count($missing_fields); $i++) {
 				$current = key($missing_fields);
 				if($this->api_list[$function]['fields'][$current] === null) {
@@ -112,10 +120,10 @@ class Track extends AbstractBaseApi
 				next($missing_fields);
 			}
 		}
-		
+
 		$this->BuildUri($data, $this->api_list[$function]['uri']);
 		$xml = $this->SendRequest();
-		
+
 		return $xml;
 	}
 }

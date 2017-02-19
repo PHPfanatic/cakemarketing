@@ -28,7 +28,7 @@ composer require phpfanatic/cakemarketing
 
 ```
 
-I found that in CakePHP I needed to update the composer.json file of the CakePHP app to have the following:
+When using CakePHP you may need to update the composer.json file of the CakePHP app to have the following for namespacing to work correctly:
 ```
  "autoload": {
         "psr-4": {
@@ -39,10 +39,20 @@ I found that in CakePHP I needed to update the composer.json file of the CakePHP
 
 ```
 
-
 ### Prerequisites
 
 You will need an active Cake Marketing account with an active Api key and domain URL.  These need to be setup directly with Cake Marketing.
+
+### Example Usage
+
+```
+use PhpFanatic\Cakemarketing\Get;
+
+$getApi = new Get('ABC123', 'http://yourportalurl.com');
+$data = ['lead_id'=>'ID123ABC'];
+$xml = $getApi->ApiCall('LeadInfo', $data);
+var_dump($xml);
+```
 
 ## Built With
 
