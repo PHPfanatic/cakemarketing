@@ -26,7 +26,7 @@ class Export extends AbstractBaseApi
 							'start_at_row'=>0,
 							'row_limit'=>0,
 							'sort_field'=>0,
-							'sort_descending'=>'true',
+							'sort_descending'=>'TRUE',
 							'affiliate_name'=>''
 					],
 					'uri'=>'/5/export.asmx/Affiliates'
@@ -44,7 +44,7 @@ class Export extends AbstractBaseApi
 							'start_at_row'=>1,
 							'row_limit'=>0,
 							'sort_field'=>0,
-							'sort_descending'=>'true'
+							'sort_descending'=>'TRUE'
 					],
 					'uri'=>'/5/export.asmx/Offers'
 			],
@@ -58,7 +58,7 @@ class Export extends AbstractBaseApi
 							'start_at_row'=>1,
 							'row_limit'=>0,
 							'sort_field'=>0,
-							'sort_descending'=>'true'
+							'sort_descending'=>'TRUE'
 					],
 					'uri'=>'/5/export.asmx/Campaigns'
 			],

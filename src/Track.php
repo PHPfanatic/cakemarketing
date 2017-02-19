@@ -44,7 +44,7 @@ class Track extends AbstractBaseApi
 							'lead_id'=>null,
 							'add_to_existing'=>null,
 							'amount'=>null,
-							'notes'=>null
+							'notes'=>''
 					],
 					'uri'=>'/1/track.asmx/UpdateSaleRevenue'
 			],
@@ -79,6 +79,15 @@ class Track extends AbstractBaseApi
 					],
 					'uri'=>'/2/track.asmx/MassConversionInsert'
 			],
+			'AcceptedDispositions'=>[
+					'fields'=>[],
+					'uri'=>'/1/track.asmx/AcceptedDispositions'
+			],
+			'ConversionDispositions'=>[
+					'fields'=>[],
+					'uri'=>'/2/track.asmx/ConversionDispositions'
+			],
+			
 	];
 		
 	/**
@@ -90,6 +99,13 @@ class Track extends AbstractBaseApi
 		parent::__construct($key, $url);
 	}
 	
+	/**
+	 * Call the api with the function and data you have provided.
+	 * @param string $function
+	 * @param array $data
+	 * @throws \Exception
+	 * @return string Cake Marketing XML response.
+	 */
 	public function ApiCall($function, $data=array()) {
 		if(!array_key_exists($function, $this->api_list)) {
 			throw new \Exception('Requested function does not exist.');

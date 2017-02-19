@@ -56,7 +56,7 @@ class Report extends AbstractBaseApi
 							'campaign_id'=>null,
 							'creative_id'=>0,
 							'account_manager_id'=>0,
-							'include_tests'=>'false'
+							'include_tests'=>'FALSE'
 					],
 					'uri'=>'/1/reports.asmx/DailySummaryExport'
 			],
@@ -83,12 +83,28 @@ class Report extends AbstractBaseApi
 							'start_at_row'=>0,
 							'row_limit'=>1000,
 							'sort_field'=>'conversion_date',
-							'sort_descending'=>'false'
+							'sort_descending'=>'FALSE'
 					],
 					'uri'=>'/11/reports.asmx/Conversions'
+			],
+			'LeadsByBuyer'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'vertical_id'=>0,
+							'buyer_id'=>0,
+							'buyer_contract_id'=>0,
+							'status_id'=>0,
+							'substatus_id'=>0,
+							'start_at_row'=>null,
+							'row_limit'=>100,
+							'sort_field'=>'buyer_id',
+							'sort_descending'=>'FALSE'
+					],
+					'uri'=>'/4/reports.asmx/LeadsByBuyer'
 			]
 	];
-		
+	
 	/**
 	 * Create the track class with your given Api key and url.
 	 * @param string $key
