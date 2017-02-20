@@ -102,6 +102,54 @@ class Report extends AbstractBaseApi
 							'sort_descending'=>'FALSE'
 					],
 					'uri'=>'/4/reports.asmx/LeadsByBuyer'
+			],
+			'Clicks'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'affiliate_id'=>null,
+							'advertiser_id'=>null,
+							'offer_id'=>null,
+							'campaign_id'=>null,
+							'creative_id'=>null,
+							'price_format_id'=>0,
+							'include_tests'=>'FALSE',
+							'start_at_row'=>0,
+							'row_limit'=>0,
+							'include_duplicates'=>'TRUE'
+					],
+					'uri'=>'/10/reports.asmx/Clicks'
+			],
+			'CreativeSummary '=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'offer_id'=>0,
+							'campaign_id'=>0,
+							'event_id'=>0,
+							'revenue_filter'=>'conversions_and_events'
+					],
+					'uri'=>'/2/reports.asmx/CreativeSummary '
+			],
+			'LeadsByAffiliateExport'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'affilaite_id'=>0,
+							'contact_id'=>0
+					],
+					'uri'=>'/1/reports.asmx/LeadsByAffiliateExport'
+			],
+			'SubIDSummary'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'source_affiliate_id'=>null,
+							'site_offer_id'=>0,
+							'event_id'=>null,
+							'revenue_filter'=>'conversions_and_events'
+					],
+					'uri'=>'/1/reports.asmx/SubIDSummary'
 			]
 	];
 	

@@ -112,6 +112,21 @@ class Export extends AbstractBaseApi
 					],
 					'uri'=>'/1/export.asmx/LeadTiers'
 			],
+			'CampaignLeadTiers'=>[
+					'fields'=>[
+							'campaign_id'=>0,
+							'offer_id'=>0,
+							'offer_contract_id'=>0,
+							'affiliate_id'=>0,
+							'account_status_id'=>0,
+							'media_type_id'=>0,
+							'start_at_row'=>0,
+							'row_limit'=>0,
+							'sort_field'=>'campaign_id',
+							'sort_descending'=>'TRUE'
+					],
+					'uri'=>'/1/export.asmx/CampaignLeadTiers'
+			],
 			'AffiliateReferrals'=>[
 					'fields'=>[
 							'referrer_affiliate_id'=>null,
@@ -128,6 +143,18 @@ class Export extends AbstractBaseApi
 							'offer_id'=>0
 					],
 					'uri'=>'/1/export.asmx/Blacklists'
+			],
+			'Schedules'=>[
+					'fields'=>[
+							'start_date'=>null,
+							'end_date'=>null,
+							'buyer_id'=>0,
+							'status_id'=>null,
+							'vertical_id'=>0,
+							'priority_only'=>'FALSE',
+							'active_only'=>'TRUE'
+					],
+					'uri'=>'/2/export.asmx/Schedules'
 			]
 	];
 	

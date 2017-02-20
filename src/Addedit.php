@@ -37,7 +37,7 @@ class Addedit extends AbstractBaseApi
 					],
 					'uri'=>'/1/addedit.asmx/Buyer'
 			],
-			'Contract'=>[
+			'BuyerContract'=>[
 					'fields'=>[
 							'buyer_contract_id'=>0,
 							'buyer_id'=>null,
@@ -81,6 +81,54 @@ class Addedit extends AbstractBaseApi
 							'no_return'=>null
 					],
 					'uri'=>'/1/addedit.asmx/BuyerContractDeliverySchedule'
+			],
+			'Blacklist'=>[
+					'fields'=>[
+							'affiliate_id'=>null,
+							'sub_id'=>'',
+							'advertiser_id'=>0,
+							'offer_id'=>0,
+							'blacklist_id'=>null,
+							'blacklist_reason_id'=>null,
+							'redirect_type'=>'redirect_404',
+							'blacklist_date'=>null,
+							'blacklist_date_modification_type'=>null
+					],
+					'uri'=>'/1/addedit.asmx/Blacklist'
+			],
+			'Campaign'=>[
+					'fields'=>[
+							'campaign_id'=>null,
+							'affiliate_id'=>null,
+							'offer_id'=>null,
+							'offer_contract_id'=>0,
+							'media_type_id'=>null,
+							'third_party_name'=>'',
+							'account_status_id'=>null,
+							'display_link_type_id'=>null,
+							'expiration_date'=>null,
+							'expiration_date_modification_type'=>null,
+							'currency_id'=>null,
+							'use_offer_contract_payout'=>'on',
+							'payout'=>null,
+							'payout_update_option'=>null,
+							'paid'=>null,
+							'static_suppression'=>null,
+							'paid_redirects'=>null,
+							'paid_upsells'=>null,
+							'review'=>null,
+							'auto_disposition_delay_hours'=>null,
+							'redirect_offer_contract_id'=>null,
+							'redirect_404'=>null,
+							'clear_session_on_conversion'=>null,
+							'postback_url'=>null,
+							'postback_delay_ms'=>null,
+							'unique_key_hash'=>null,
+							'pixel_html'=>null,
+							'test_link'=>'',
+							'redirect_domain'=>''
+					],
+					'uri'=>'/3/addedit.asmx/Campaign'
 			]
 	];
 	
