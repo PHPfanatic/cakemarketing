@@ -137,9 +137,7 @@ class Report extends AbstractBaseApi
 			}
 		}
 
-		$this->BuildUri($data, $this->api_list[$function]['uri']);
-		$xml = $this->SendRequest();
-
-		return $xml;
+		$this->BuildUri($this->api_list[$function]['uri'], $data);
+		return $this->SendRequest();
 	}
 }

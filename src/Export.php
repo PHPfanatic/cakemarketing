@@ -20,7 +20,7 @@ class Export extends AbstractBaseApi
 	public $api_list = [
 			'Affiliate'=>[
 					'fields'=>[
-							'affiliate_id'=>null,
+							'affiliate_id'=>0,
 							'account_manager_id'=>0,
 							'tag_id'=>0,
 							'start_at_row'=>0,
@@ -31,9 +31,23 @@ class Export extends AbstractBaseApi
 					],
 					'uri'=>'/5/export.asmx/Affiliates'
 			],
+			'Advertisers'=>[
+					'fields'=>[
+							'advertiser_id'=>0,
+							'advertiser_name'=>'',
+							'account_manager_id'=>0,
+							'tag_id'=>0,
+							'start_at_row'=>0,
+							'row_limit'=>0,
+							'sort_field'=>0,
+							'sort_descending'=>'TRUE',
+							'affiliate_name'=>''
+					],
+					'uri'=>'/6/export.asmx/Advertisers'
+			],
 			'Offers'=>[
 					'fields'=>[
-							'offer_id'=>null,
+							'offer_id'=>0,
 							'offer_name'=>'',
 							'advertiser_id'=>0,
 							'vertical_id'=>0,
@@ -41,7 +55,7 @@ class Export extends AbstractBaseApi
 							'media_type_id'=>0,
 							'offer_status_id'=>0,
 							'tag_id'=>0,
-							'start_at_row'=>1,
+							'start_at_row'=>0,
 							'row_limit'=>0,
 							'sort_field'=>0,
 							'sort_descending'=>'TRUE'
@@ -51,16 +65,16 @@ class Export extends AbstractBaseApi
 			'Campaigns'=>[
 					'fields'=>[
 							'campaign_id'=>null,
-							'offer_id'=>null,
-							'affiliate_id'=>null,
+							'offer_id'=>0,
+							'affiliate_id'=>0,
 							'account_status_id'=>0,
 							'media_type_id'=>0,
-							'start_at_row'=>1,
+							'start_at_row'=>0,
 							'row_limit'=>0,
 							'sort_field'=>0,
 							'sort_descending'=>'TRUE'
 					],
-					'uri'=>'/5/export.asmx/Campaigns'
+					'uri'=>'/7/export.asmx/Campaigns'
 			],
 			'Buyers'=>[
 					'fields'=>[
@@ -77,6 +91,43 @@ class Export extends AbstractBaseApi
 							'buyer_contract_status_id'=> 0
 					],
 					'uri'=>'/3/export.asmx/BuyerContracts'
+			],
+			'Creatives'=>[
+					'fields'=>[
+							'creative_id'=>0,
+							'creative_name'=> 0,
+							'offer_id'=> null,
+							'creative_type_id'=> 0,
+							'creative_status_id'=>0,
+							'start_at_row'=>1,
+							'row_limit'=>0,
+							'sort_field'=>0,
+							'sort_descending'=>'TRUE'
+					],
+					'uri'=>'/3/export.asmx/Creatives'
+			],
+			'LeadTiers'=>[
+					'fields'=>[
+							'vertical_id'=>0
+					],
+					'uri'=>'/1/export.asmx/LeadTiers'
+			],
+			'AffiliateReferrals'=>[
+					'fields'=>[
+							'referrer_affiliate_id'=>null,
+							'start_at_row'=>0,
+							'row_limit'=>0
+					],
+					'uri'=>'/1/export.asmx/AffiliateReferrals'
+			],
+			'Blacklists'=>[
+					'fields'=>[
+							'affiliate_id'=>0,
+							'sub_id'=>'',
+							'advertiser_id'=>0,
+							'offer_id'=>0
+					],
+					'uri'=>'/1/export.asmx/Blacklists'
 			]
 	];
 	
@@ -112,9 +163,7 @@ class Export extends AbstractBaseApi
 			}
 		}
 
-		$this->BuildUri($data, $this->api_list[$function]['uri']);
-		$xml = $this->SendRequest();
-
-		return $xml;
+		$this->BuildUri($this->api_list[$function]['uri'], $data);
+		return $this->SendRequest();
 	}
 }

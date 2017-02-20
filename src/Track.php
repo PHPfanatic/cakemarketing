@@ -17,7 +17,7 @@ class Track extends AbstractBaseApi
 	 * is not desired.  Cake Marketing API requires all fields to be sent rather
 	 * you you have a value for them or not.
 	 */
-	public $api_list = [
+	protected $api_list = [
 			'UpdateConversion'=>[
 					'fields'=>[
 							'offer_id'=>null,
@@ -79,6 +79,30 @@ class Track extends AbstractBaseApi
 					],
 					'uri'=>'/2/track.asmx/MassConversionInsert'
 			],
+			'MassConversionAdjustment'=>[
+					'fields'=>[
+							'get_current_totals_only'=>'TRUE',
+							'start_date'=>null,
+							'end_date'=>null,
+							'affiliate_id'=>null,
+							'offer_id'=>null,
+							'campaign_id'=>null,
+							'sub_affiliate'=>null,
+							'creative_id'=>null,
+							'affiliate_payment_type'=>null,
+							'advertiser_payment_type'=>null,
+							'total_to_adjust'=>null,
+							'payout'=>null,
+							'payout_currency_id'=>null,
+							'received'=>null,
+							'received_currency_id'=>null,
+							'return_option'=>null,
+							'note'=>'',
+							'effective_date_option'=>null,
+							'custom_date'=>null
+					],
+					'uri'=>'/2/track.asmx/MassConversionAdjustment'
+			],
 			'AcceptedDispositions'=>[
 					'fields'=>[],
 					'uri'=>'/1/track.asmx/AcceptedDispositions'
@@ -91,19 +115,11 @@ class Track extends AbstractBaseApi
 	];
 		
 	/**
-	 * Create the track class with your given Api key and url.
-	 * @param string $key
-	 * @param string $url
-	 */
-	public function __construct($key, $url) {
-		parent::__construct($key, $url);
-	}
-	
-	/**
 	 * Call the api with the function and data you have provided.
-	 * @param string $function
-	 * @param array $data
+	 * @param string $function UpdateConversion, ConversionDispositions, AcceptedDispositions, MassConversionInsert, RejectedDispositions, UpdateLeadPrice, UpdateSaleRevenue 
+	 * @param array $data Key value pair for the fields required by Cake Marketing
 	 * @throws \Exception
+	 * @example object->ApiCall('UpdateLeadPrice', array('vertical_id'=>12, 'lead_id'=>'ABC123', 'amount'=>2.50));
 	 * @return string Cake Marketing XML response.
 	 */
 	public function ApiCall($function, $data=array()) {
@@ -129,9 +145,7 @@ class Track extends AbstractBaseApi
 			}
 		}
 		
-		$this->BuildUri($data, $this->api_list[$function]['uri']);
-		$xml = $this->SendRequest();
-		
-		return $xml;
+		$this->BuildUri($this->api_list[$function]['uri'], $data);
+		return $this->SendRequest();
 	}
 }

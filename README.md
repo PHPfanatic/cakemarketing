@@ -2,8 +2,7 @@
 
 This project is a psr-4 compliant implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
-Because of some inconsistencies in the Cake Marketing API not all functions will be supported.  This implementation breaks the Cake Marketing
-API into individual classes that follow their naming convention.
+This implementation breaks the Cake Marketing API into individual classes that follow their naming convention.
 
 Cake Marketing API supports Soap 1.1, Soap 1.2, GET and POST.  This project uses HTTP GET for each call.  Use caution in requesting large data sets, if you are unable to retrieve data because of OOM errors consider using row limiters with row start.
 
@@ -36,11 +35,16 @@ You will need an active Cake Marketing account with an active Api key and domain
 
 ```
 use PhpFanatic\Cakemarketing\Get;
+use PhpFanatic\Cakemarketing\Track;
 
+//Get API
 $getApi = new Get('ABC123', 'http://yourportalurl.com');
 $data = ['lead_id'=>'ID123ABC'];
 $xml = $getApi->ApiCall('LeadInfo', $data);
-var_dump($xml);
+
+//Track API
+$trackApi = new Track('ABC123', 'http://yourportalurl.com');
+$xml = $trackApi->ApiCall('AcceptedDispositions');
 ```
 
 ##Documentation
