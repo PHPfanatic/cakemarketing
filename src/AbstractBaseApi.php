@@ -52,7 +52,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 */
 	public function BuildUri($function, $data=array()) {
 		if(!isset($this->apikey) || !isset($this->apiurl)){
-			throw new Exception('API Key or Url not set');
+			throw new \Exception('API Key or Url not set');
 		}
 		
 		$api_vars = http_build_query($data);
