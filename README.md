@@ -1,4 +1,5 @@
 # Cake Marketing API Library
+[![Build Status](https://travis-ci.org/PHPfanatic/cakemarketing.svg?branch=master)](https://travis-ci.org/PHPfanatic/cakemarketing)
 
 This project is a psr-4 compliant implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
