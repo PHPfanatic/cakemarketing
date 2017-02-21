@@ -1,5 +1,5 @@
 {
-    "name": "phpfanatic/cakemarketing",
+    "name": "phpfanatic/Cakemarketing",
     "description": "Cake Marketing API",
     "type": "library",
     "license": "MIT",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "phpfanatic\\cakemarketing\\": "src/"
+            "PhpFanatic\\Cakemarketing\\": "src"
         }
     }
 }
