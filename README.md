@@ -1,7 +1,7 @@
 # Cake Marketing API Library
 [![Build Status](https://travis-ci.org/PHPfanatic/cakemarketing.svg?branch=master)](https://travis-ci.org/PHPfanatic/cakemarketing)
 
-This project is a psr-4 compliant implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
+This PHP project is a psr-4 compliant implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
 This implementation breaks the Cake Marketing API into individual classes that follow their naming convention.
 
@@ -28,9 +28,11 @@ If you are using CakePHP you may need to update the composer.json file of the Ca
 
 ```
 
-### Prerequisites
+### Requirements
 
-You will need an active Cake Marketing account with an active Api key and domain URL.  These need to be setup directly with Cake Marketing.
+* You will need an active Cake Marketing account with an active Api key and domain URL.
+* PHP - 5.6, 7.0
+* PHPUnit - to run tests (optional).
 
 ### Example Usage
 
@@ -39,12 +41,12 @@ use PhpFanatic\Cakemarketing\Get;
 use PhpFanatic\Cakemarketing\Track;
 
 //Get API
-$getApi = new Get('ABC123', 'http://yourportalurl.com');
+$getApi = new Get('{API_KEY}', '{PORTAL_URL}');
 $data = ['lead_id'=>'ID123ABC'];
 $xml = $getApi->ApiCall('LeadInfo', $data);
 
 //Track API
-$trackApi = new Track('ABC123', 'http://yourportalurl.com');
+$trackApi = new Track('{API_KEY}', '{PORTAL_URL}');
 $xml = $trackApi->ApiCall('AcceptedDispositions');
 ```
 
@@ -58,7 +60,7 @@ The goal is to document features and functionality for this library through our 
 * Auth
 * Export
 * Edit
-* Get
+* [Get](https://github.com/PHPfanatic/cakemarketing/wiki/Get-Documentation)
 * Reports
 * Signup
 
@@ -66,6 +68,8 @@ The goal is to document features and functionality for this library through our 
 
 * [Composer](https://getcomposer.org/) - Dependency management
 * [PHPUnit](https://phpunit.de/) - Testing framework
+* [Packagist](https://packagist.org/) - Package repository
+* [Travis CI](https://travis-ci.org/) - Automated building
 
 ## Authors
 

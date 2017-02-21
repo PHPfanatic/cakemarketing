@@ -4,7 +4,7 @@
  *
  * @author   Nick White <git@phpfanatic.com>
  * @link     https://github.com/PHPfanatic/cakemarketing
- * @version  1.0.0
+ * @version  0.1.1
  */
 
 use PhpFanatic\Cakemarketing\AbstractBaseApi;
@@ -118,11 +118,12 @@ class Track extends AbstractBaseApi
 	 * Call the api with the function and data you have provided.
 	 * @param string $function UpdateConversion, ConversionDispositions, AcceptedDispositions, MassConversionInsert, RejectedDispositions, UpdateLeadPrice, UpdateSaleRevenue 
 	 * @param array $data Key value pair for the fields required by Cake Marketing
+	 * @param string $interface Determines the response type to return, xml or json.
 	 * @throws \Exception
 	 * @example object->ApiCall('UpdateLeadPrice', array('vertical_id'=>12, 'lead_id'=>'ABC123', 'amount'=>2.50));
 	 * @return string Cake Marketing XML response.
 	 */
-	public function ApiCall($function, $data=array()) {
+	public function ApiCall($function, $data=array(), $interface='xml') {
 		if(!array_key_exists($function, $this->api_list)) {
 			throw new \Exception('Requested function does not exist.');
 		}
@@ -146,6 +147,6 @@ class Track extends AbstractBaseApi
 		}
 		
 		$this->BuildUri($this->api_list[$function]['uri'], $data);
-		return $this->SendRequest();
+		return ($this->SendRequest());
 	}
 }
