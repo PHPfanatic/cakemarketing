@@ -1,4 +1,4 @@
-<?php namespace PhpFanatic\Cakemarketing;
+<?php namespace PhpFanatic\Cakemarketing\Api;
 /**
  * Required methods to handle authentication to Cake Marketing
  *

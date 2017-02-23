@@ -7,7 +7,8 @@
  * @version  0.1.1
  */
 
-use PhpFanatic\Cakemarketing\AbstractBaseApi;
+use PhpFanatic\Cakemarketing\Api\AbstractBaseApi;
+use PhpFanatic\Cakemarketing\Response\Response;
 
 class Export extends AbstractBaseApi
 {
@@ -191,6 +192,6 @@ class Export extends AbstractBaseApi
 		}
 
 		$this->BuildUri($this->api_list[$function]['uri'], $data);
-		return $this->SendRequest();
+		return (Response::xml($this->SendRequest()));
 	}
 }

@@ -7,7 +7,8 @@
  * @version  0.1.1
  */
 
-use PhpFanatic\Cakemarketing\AbstractBaseApi;
+use PhpFanatic\Cakemarketing\Api\AbstractBaseApi;
+use PhpFanatic\Cakemarketing\Response\Response;
 
 class Get extends AbstractBaseApi
 {
@@ -175,7 +176,7 @@ class Get extends AbstractBaseApi
 
 	public function ApiCall($function, $data=array()) {
 		if(!array_key_exists($function, $this->api_list)) {
-			throw new \Exception('Requested function does not exist.');
+			throw new \Exception("Requested function '{$function}' does not exist.");
 		}
 
 		$missing_fields = array_diff_key($this->api_list[$function]['fields'], $data);
@@ -188,7 +189,7 @@ class Get extends AbstractBaseApi
 			for($i = 0; $i < count($missing_fields); $i++) {
 				$current = key($missing_fields);
 				if($this->api_list[$function]['fields'][$current] === null) {
-					throw new \Exception('Missing required field: ' . $current);
+					throw new \Exception("Missing required field: {$current}");
 				}else{
 					$data[$current] = $this->api_list[$function]['fields'][$current];
 				}
@@ -196,7 +197,8 @@ class Get extends AbstractBaseApi
 			}
 		}
 
-		$this->BuildUri($this->api_list[$function]['uri'], $data);
-		return $this->SendRequest();
+		
+		$this->BuildUri($this->api_list[$function]['uri'], $data);		
+		return (Response::xml($this->SendRequest()));
 	}
 }

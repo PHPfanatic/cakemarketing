@@ -1,4 +1,5 @@
-<?php namespace PhpFanatic\Cakemarketing;
+<?php namespace PhpFanatic\Cakemarketing\Api;
+
 /**
  * Base API functionality for Cake Marketing.
  *
@@ -27,7 +28,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	/**
 	 * Set the required API key.
 	 * {@inheritDoc}
-	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiKey()
+	 * @see \PhpFanatic\Cakemarketing\Api\AuthInterface::SetApiKey()
 	 */
 	public function SetApiKey($key) {
 		$this->apikey = $key;	
@@ -36,7 +37,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	/**
 	 * Set the required URL.
 	 * {@inheritDoc}
-	 * @see \PhpFanatic\Cakemarketing\AuthInterface::SetApiUrl()
+	 * @see \PhpFanatic\Cakemarketing\Api\AuthInterface::SetApiUrl()
 	 */
 	public function SetApiUrl($url) {
 		$this->apiurl = $url;
@@ -46,7 +47,7 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 * Builds the URI structure for the specificed function (api method).
 	 * The data variable is an array of data to be passed to the method.
 	 * {@inheritDoc}
-	 * @see \PhpFanatic\Cakemarketing\BuilderInterface::BuildUri()
+	 * @see \PhpFanatic\Cakemarketing\Api\BuilderInterface::BuildUri()
 	 * @throws Exception
 	 */
 	public function BuildUri($function, $data=array()) {
@@ -60,10 +61,10 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	
 	/**
 	 * Send the API request to cake via curl.
-	 * @todo Evaluate curl usage, may be better as a socket.
-	 * @todo Evaluate json return, currently Cake Marketing has inconsistent json support.
+	 * @todo Evaluate curl usage, may swap to psr-7.
 	 * @return string
 	 */
+	
 	public function SendRequest() {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->apicall);
