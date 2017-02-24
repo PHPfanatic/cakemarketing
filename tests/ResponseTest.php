@@ -14,10 +14,23 @@ class ResponseTest extends PHPUnit_Framework_TestCase {
 		
 	}
 	
+	/**
+	 * Test that invalid response generates valid xml error message.
+	 */
 	public function testInvalidXml() {
 		$xml="non xml string";
 		$actual = Response::xml($xml);
 		
 		$this->assertEquals($actual->success, 'false');
+	}
+	
+	/**
+	 * Test that valid response generates valid xml object.
+	 */
+	public function testValidXml() {
+		$xml="<xml><test>works</test></xml>";
+		$actual = Response::xml($xml);
+	
+		$this->assertEquals($actual->test, 'works');
 	}
 }

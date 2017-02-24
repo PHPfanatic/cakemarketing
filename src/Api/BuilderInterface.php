@@ -9,6 +9,10 @@
 
 interface BuilderInterface {
 
+	/**
+	 * Build api call URI.
+	 * @param string $function
+	 * @param array $data
+	 */
 	public function BuildUri($function, $data=array());
-	
 }

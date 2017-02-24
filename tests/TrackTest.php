@@ -1,6 +1,11 @@
 <?php
 
 use PhpFanatic\Cakemarketing\Track;
+use PhpFanatic\Cakemarketing\Report;
+use PhpFanatic\Cakemarketing\Get;
+use PhpFanatic\Cakemarketing\Export;
+use PhpFanatic\Cakemarketing\Addedit;
+use PhpFanatic\Cakemarketing\Add;
 
 class TrackTest extends PHPUnit_Framework_TestCase {
 
@@ -17,7 +22,7 @@ class TrackTest extends PHPUnit_Framework_TestCase {
 	}
 	
 	/**
-	 * Test sending invalid method call.
+	 * Test sending invalid API call.
 	 */
 	public function testApiCallException() {
 		$this->expectException(\Exception::class);

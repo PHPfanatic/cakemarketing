@@ -64,11 +64,11 @@ class Add extends AbstractBaseApi
 
 	/**
 	 * Call the api with the function and data you have provided.
-	 * @param string $function UpdateConversion, ConversionDispositions, AcceptedDispositions, MassConversionInsert, RejectedDispositions, UpdateLeadPrice, UpdateSaleRevenue
+	 * @param string $function
 	 * @param array $data Key value pair for the fields required by Cake Marketing
 	 * @throws \Exception
 	 * @example object->ApiCall('UpdateLeadPrice', array('vertical_id'=>12, 'lead_id'=>'ABC123', 'amount'=>2.50));
-	 * @return string Cake Marketing XML response.
+	 * @return object \PhpFanatic\Cakemarketing\Response\SimpleXMLElement|SimpleXMLElement
 	 */
 	public function ApiCall($function, $data=array()) {
 		if(!array_key_exists($function, $this->api_list)) {

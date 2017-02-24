@@ -64,7 +64,6 @@ abstract class AbstractBaseApi implements AuthInterface, BuilderInterface
 	 * @todo Evaluate curl usage, may swap to psr-7.
 	 * @return string
 	 */
-	
 	public function SendRequest() {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->apicall);
