@@ -1,7 +1,7 @@
 # Cake Marketing API Library
 [![Build Status](https://travis-ci.org/PHPfanatic/cakemarketing.svg?branch=master)](https://travis-ci.org/PHPfanatic/cakemarketing)
 
-Cake Marketing API, PHP composer implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
+Cake Marketing API, PHP/composer implementation of the Cake Marketing API. ([Getcake](http://getcake.com/)).
 
 This implementation breaks the Cake Marketing API into individual classes that follow their naming convention.
 

@@ -167,7 +167,6 @@ class Report extends AbstractBaseApi
 	 * Call the api with the function and data you have provided.
 	 * @param string $function
 	 * @param array $data Key value pair for the fields required by Cake Marketing
-	 * @param string $interface Determines the response type to return, xml or json.
 	 * @throws \Exception
 	 * @example object->ApiCall('UpdateLeadPrice', array('vertical_id'=>12, 'lead_id'=>'ABC123', 'amount'=>2.50));
 	 * @return object \PhpFanatic\Cakemarketing\Response\SimpleXMLElement|SimpleXMLElement
