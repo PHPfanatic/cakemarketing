@@ -146,13 +146,14 @@ class Addedit extends AbstractBaseApi
 	 * Call the api with the function and data you have provided.
 	 * @param string $function
 	 * @param array $data Key value pair for the fields required by Cake Marketing
-	 * @throws \Exception
+	 * @throws \LogicException
+	 * @throws \InvalidArgumentException
 	 * @example object->ApiCall('UpdateLeadPrice', array('vertical_id'=>12, 'lead_id'=>'ABC123', 'amount'=>2.50));
 	 * @return object \PhpFanatic\Cakemarketing\Response\SimpleXMLElement|SimpleXMLElement
 	 */
 	public function ApiCall($function, $data=array()) {
 		if(!array_key_exists($function, $this->api_list)) {
-			throw new \Exception('Requested function does not exist.');
+			throw new \InvalidArgumentException('Requested function does not exist.');
 		}
 
 		$missing_fields = array_diff_key($this->api_list[$function]['fields'], $data);
@@ -165,7 +166,7 @@ class Addedit extends AbstractBaseApi
 			for($i = 0; $i < count($missing_fields); $i++) {
 				$current = key($missing_fields);
 				if($this->api_list[$function]['fields'][$current] === null) {
-					throw new \Exception('Missing required field: ' . $current);
+					throw new \LogicException('Missing required field: ' . $current);
 				}else{
 					$data[$current] = $this->api_list[$function]['fields'][$current];
 				}
