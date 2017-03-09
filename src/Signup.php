@@ -109,7 +109,7 @@ class Signup extends AbstractBaseApi
 							'terms_and_conditions_agreed'=>null,
 							'notes'=>''
 					],
-					'uri'=>'/1/signup.asmx/Affiliate'
+					'uri'=>'/4/signup.asmx/Affiliate'
 			],
 	];
 

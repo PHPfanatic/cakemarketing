@@ -22,7 +22,7 @@ class Add extends AbstractBaseApi
 			'AdvertiserCredit'=>[
 					'fields'=>[
 							'advertiser_id'=>null,
-							'currency_id'=>null,
+							'currency_id'=>0,
 							'amount'=>null,
 							'invoice_number'=>null,
 							'verification_code'=>null,
@@ -37,7 +37,7 @@ class Add extends AbstractBaseApi
 							'creative_type_id'=>null,
 							'creative_status_id'=>null,
 							'offer_link'=>null,
-							'notes'=>null
+							'notes'=>''
 					],
 					'uri'=>'/1/add.asmx/Creative'
 			],
@@ -52,7 +52,7 @@ class Add extends AbstractBaseApi
 			'ManualCredit'=>[
 					'fields'=>[
 							'buyer_id'=>null,
-							'buyer_contrct_id'=>null,
+							'buyer_contract_id'=>null,
 							'amount'=>null,
 							'invoice_number'=>'',
 							'verification_code'=>'',

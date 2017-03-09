@@ -31,7 +31,8 @@ If you are using CakePHP you may need to update the composer.json file of the Ca
 ### Requirements
 
 * You will need an active Cake Marketing account with an active Api key and domain URL.
-* PHP - 5.6, 7.0
+* PHP - 5.6, 7.0 may work with as early as 5.4, but untested.
+* cURL
 * PHPUnit - to run tests (optional).
 
 ### Example Usage
@@ -54,15 +55,15 @@ $xml = $trackApi->ApiCall('AcceptedDispositions');
 The goal is to document features and functionality for this library through our GitHub Wiki for this project.  For Cake Marketing API documentation, you should reference their site directly.
 ([Cake Marketing API Documentation](https://support.getcake.com/support/solutions/5000109264))
 * [Track](https://github.com/PHPfanatic/cakemarketing/wiki/Track-Documentation)
-* Accounting
-* Add
-* Addedit
-* Auth
-* Export
-* Edit
+* [Accounting](https://github.com/PHPfanatic/cakemarketing/wiki/Accounting-Documentation)
+* [Add](https://github.com/PHPfanatic/cakemarketing/wiki/Add-Documentation)
+* [Addedit](https://github.com/PHPfanatic/cakemarketing/wiki/Addedit-Documentation)
+* [Auth](https://github.com/PHPfanatic/cakemarketing/wiki/Auth-Documentation)
+* [Export](https://github.com/PHPfanatic/cakemarketing/wiki/Export-Documentation)
+* [Edit](https://github.com/PHPfanatic/cakemarketing/wiki/Edit-Documentation)
 * [Get](https://github.com/PHPfanatic/cakemarketing/wiki/Get-Documentation)
-* Reports
-* Signup
+* [Reports](https://github.com/PHPfanatic/cakemarketing/wiki/Reports-Documentation)
+* [Signup](https://github.com/PHPfanatic/cakemarketing/wiki/Signup-Documentation)
 
 ## Built With
 
