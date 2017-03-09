@@ -23,6 +23,7 @@ class Report extends AbstractBaseApi
 					'fields'=>[
 							'start_date'=>null,
 							'end_date'=>null,
+							'affiliate_id'=>null,
 							'affiliate_manger_id'=>0,
 							'affiliate_tag_id'=>0,
 							'offer_tag_id'=>0,
@@ -33,18 +34,20 @@ class Report extends AbstractBaseApi
 			],
 			'CampaignSummary'=>[
 					'fields'=>[
-							'affiliate_id'=>null,
 							'start_date'=>null,
 							'end_date'=>null,
-							'affiliate_manager_id'=>0,
-							'affiliate_tag_id'=>0,
-							'offer_id'=>null,
-							'offer_tag_id'=>0,
-							'campaign_id'=>null,
+							'campaign_id'=>0,
+							'source_affiliate_id'=>0,
+							'subid_id'=>'',
+							'site_offer_id'=>0,
+							'source_affiliate_tag_id'=>0,
+							'site_offer_tag_id'=>0,
+							'source_affiliate_manager_id'=>0,
+							'brand_advertiser_manager_id'=>0,
 							'event_id'=>0,
-							'revenue_filter'=>'conversions_and_events'
+							'event_type'=>'all'
 					],
-					'uri'=>'/2/reports.asmx/CampaignSummary'
+					'uri'=>'/5/reports.asmx/CampaignSummary'
 			],
 			'DailySummaryExport'=>[
 					'fields'=>[
@@ -57,7 +60,7 @@ class Report extends AbstractBaseApi
 							'campaign_id'=>null,
 							'creative_id'=>0,
 							'account_manager_id'=>0,
-							'include_tests'=>'FALSE'
+							'include_tests'=>FALSE
 					],
 					'uri'=>'/1/reports.asmx/DailySummaryExport'
 			],
@@ -66,27 +69,30 @@ class Report extends AbstractBaseApi
 							'start_date'=>null,
 							'end_date'=>null,
 							'conversion_type'=>'all',
+							'event_type'=>'all',
 							'event_id'=>0,
-							'affiliate_id'=>null,
-							'advertiser_id'=>0,
-							'offer_id'=>null,
-							'affiliate_tag_id'=>0,
-							'advertiser_tag_id'=>0,
-							'offer_tag_id'=>0,
-							'campaign_id'=>null,
-							'creative_id'=>null,
-							'price_format_id'=>0,
-							'disposition_type'=>'all',
-							'disposition_id'=>0,
-							'affiliate_billing_status'=>'all',
-							'advertiser_billing_status'=>'all',
+							'source_affiliate_id'=>0,
+							'brand_advertiser_id'=>0,
+							'channel_id'=>0,
+							'site_offer_id'=>0,
+							'site_offer_contract_id'=>0,
+							'source_affiliate_tag_id'=>0,
+							'brand_advertiser_tag_id'=>0,
+							'site_offer_tag_id'=>0,
+							'campaign_id'=>0,
+							'creative_id'=>0,
+							'price_format_id'=>null,
+							'disposition_type'=>'approved',
+							'dispostion_id'=>0,
+							'source_affiliate_billing_status'=>'all',
+							'brand_advertiser_billing_status'=>'all',
 							'test_filter'=>'both',
 							'start_at_row'=>0,
-							'row_limit'=>1000,
+							'row_limit'=>100000,
 							'sort_field'=>'conversion_date',
-							'sort_descending'=>'FALSE'
+							'sort_descending'=>TRUE
 					],
-					'uri'=>'/11/reports.asmx/Conversions'
+					'uri'=>'/15/reports.asmx/Conversions'
 			],
 			'LeadsByBuyer'=>[
 					'fields'=>[
@@ -141,7 +147,7 @@ class Report extends AbstractBaseApi
 					],
 					'uri'=>'/1/reports.asmx/LeadsByAffiliateExport'
 			],
-			'SubIDSummary'=>[
+			'SubIdSummary'=>[
 					'fields'=>[
 							'start_date'=>null,
 							'end_date'=>null,
